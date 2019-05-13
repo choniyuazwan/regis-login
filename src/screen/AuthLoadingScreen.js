@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import SplashScreen from 'react-native-splash-screen'
 
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -16,8 +17,9 @@ class AuthLoadingScreen extends React.Component {
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
     setTimeout(() => {
+      SplashScreen.hide();
       this.props.navigation.navigate(userToken ? 'Dashboard' : 'Auth');
-    }, 3000);
+    }, 1000);
   };
 
   render() {
