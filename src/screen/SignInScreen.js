@@ -3,16 +3,20 @@ import {
   StyleSheet, 
   Text, 
   View,
-  Button
+  Button,
+  AsyncStorage
 } from 'react-native';
 
 class SignInScreen extends Component {
   static navigationOptions = {
     title : 'LOGIN'
   }
-  _login = () => {
-    alert('login')
+
+  _login = async () => {
+    let userToken = await AsyncStorage.setItem('userToken', 'ABCDE')
+    this.props.navigation.navigate('Dashboard')
   }
+
   render() {
     return(
       <View style={styles.container}>
