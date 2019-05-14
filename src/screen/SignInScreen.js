@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AsyncStorage } from 'react-native';
 import {
   Container,
   Header,
@@ -26,20 +27,8 @@ class SignInScreen extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        {/* <Header>
-          <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
-              <Icon name="arrow-back" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Login</Title>
-          </Body>
-          <Right />
-        </Header> */}
-
         <Content padder>
-          <H1 style={styles.mb10}>Header One</H1>
+          <H1 style={styles.mb10}>Login</H1>
           <Form>
             <Item floatingLabel>
               <Label>Username</Label>
@@ -50,7 +39,7 @@ class SignInScreen extends Component {
               <Input secureTextEntry />
             </Item>
           </Form>
-          <Button block style={{ margin: 15, marginTop: 50 }}>
+          <Button block style={{ margin: 15, marginTop: 50 }} onPress={this._login}>
             <Text>Login</Text>
           </Button>
           <Button block style={{ margin: 15, marginTop: 50 }} onPress={() => this.props.navigation.navigate("Register")}>
