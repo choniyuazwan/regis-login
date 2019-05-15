@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import {
   Container,
   Header,
@@ -42,8 +42,9 @@ class SignInScreen extends Component {
           <Button block style={{ margin: 15, marginTop: 50 }} onPress={this._login}>
             <Text>Login</Text>
           </Button>
-          <Button block style={{ margin: 15, marginTop: 50 }} onPress={() => this.props.navigation.navigate("Register")}>
-            <Text>Register</Text>
+          <Button block transparent style={{ margin: 15}} onPress={() => this.props.navigation.navigate("Register")}>
+            <Text>Register Here</Text>
+            {/* <Label>Register Here</Label> */}
           </Button>
         </Content>
       </Container>
